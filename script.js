@@ -9,16 +9,16 @@ const bUp = c("up");
 const bDown = c("down");
 const bBack = c("back");
 
-const navButtons = [bRight, bLeft, bUp, bDown, bBack];
+const bts = [bRight, bLeft, bUp, bDown, bBack];
 
-function clearNav() {
-  navButtons.forEach((btn) => btn?.classList.remove("v"));
+function clear() {
+  bts.forEach((btn) => btn?.classList.remove("v"));
 }
 
-function setView(v) {
+function sv(v) {
   cView = v;
   g("thing").className = v;
-  clearNav();
+  clear();
 
   if (v === "tl") {
     bRight?.classList.add("v");
@@ -39,36 +39,37 @@ function setView(v) {
   }
 }
 
-function move(direction) {
-  if (cView === "tl") {
-    if (direction === "right") setView("tr");
-    if (direction === "down") setView("bl");
-  } else if (cView === "tr") {
-    if (direction === "left") setView("tl");
-    if (direction === "down") setView("br");
-  } else if (cView === "bl") {
-    if (direction === "up") setView("tl");
-    if (direction === "right") setView("br");
-  } else if (cView === "br") {
-    if (direction === "up") setView("tr");
-    if (direction === "left") setView("bl");
+function move(d) {
+  if (cView == "tl") {
+    if (d == "right") sv("tr");
+    if (d == "down") sv("bl");
+  } else if (cView == "tr") {
+    if (d == "left") sv("tl");
+    if (d == "down") sv("br");
+  } else if (cView == "bl") {
+    if (d == "up") sv("tl");
+    if (d == "right") sv("br");
+  } else if (cView == "br") {
+    if (d == "up") sv("tr");
+    if (d == "left") sv("bl");
   }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   g("lid").addEventListener("click", () => {
     g("lid").classList.toggle("out");
+    sv("");
   });
 
-  g("top-left").addEventListener("click", () => setView("tl"));
-  g("top-right").addEventListener("click", () => setView("tr"));
-  g("bot-left").addEventListener("click", () => setView("bl"));
-  g("bot-right").addEventListener("click", () => setView("br"));
+  g("top-left").addEventListener("click", () => sv("tl"));
+  g("top-right").addEventListener("click", () => sv("tr"));
+  g("bot-left").addEventListener("click", () => sv("bl"));
+  g("bot-right").addEventListener("click", () => sv("br"));
 
   bRight?.addEventListener("click", () => move("right"));
   bLeft?.addEventListener("click", () => move("left"));
   bUp?.addEventListener("click", () => move("up"));
   bDown?.addEventListener("click", () => move("down"));
 
-  bBack?.addEventListener("click", () => setView(""));
+  bBack?.addEventListener("click", () => sv(""));
 });
