@@ -21,13 +21,52 @@
       <button class="down w"></button>
       <button class="back w"></button>
     </div>
-    <div id="thing">
+    <div id="thing" class="">
       <img id="bento" src="bento.png" />
-      <div id="top-left">Text</div>
-      <div id="top-right"></div>
-      <div id="bot-left"></div>
-      <div id="bot-right"></div>
-      <img id="lid" src="lid.png" />
+      <div id="top-left">
+        <h3>Step 1</h3>
+        <p>Decompression</p>
+        <p>Replace all 4 with 11, 5 with 22, and 6 with 33.</p>
+        <p>
+          For example 4121316 becomes <strong>11</strong>12131<strong
+            >33</strong
+          >
+        </p>
+        <p>and 31215343120264424653</p>
+        <p>
+          becomes
+          3121<strong>22</strong>3<strong>11</strong>31202<strong>331111</strong>2<strong>113322</strong>3
+        </p>
+      </div>
+      <div id="top-right">
+        <h3>Step 2</h3>
+        <p>Tokenization</p>
+        <p>Divide all numbers into tokens of 3, and parse 0 as SPACE.</p>
+        <p>For example 111213133 becomes 111 213 133</p>
+        <p>and 3121223113120233111121133223 becomes</p>
+        <p>312 122 311 312 and 233 111 121 133 223</p>
+      </div>
+      <div id="bot-left" style="justify-content: left; text-align: left; align-items: flex-start; font-size: 40%;">
+        <h3>Step 4</h3>
+        <p>Substitution</p>
+        <p>With the cipher from the last step,</p>
+        <p>substitute all tokens, so</p>
+        <p>111 213 133 becomes ALI and</p>
+        <p>312 122 311 ... 133 223 becomes</p>
+        <p>TEST RADIO</p>
+        <a href="https://312.alimad.co" target="_blank">found this insight useful? here's the complete 312 decoder</a>
+      </div>
+      <div id="bot-right" style="font-size: 40%;">
+        <h3>Step 3</h3>
+        <p>Cipher</p>
+        <p>Consider a base 3 number system, but instead of digits</p>
+        <p>0 1 and 2, it has the digits 1 2 and 3</p>
+        <p>Each digit corresponds to a base10 digit,</p>
+        <p>and that base10 digit corresponds to the Nth alphabet</p>
+        <p>So 111 -> A, 112 -> B, 113 -> C and so on...</p>
+        <p>...until 332 -> Z, 333 -> *</p>
+      </div>
+      <img id="lid" class="" src="lid.png" />
     </div>
   </body>
 </html>
