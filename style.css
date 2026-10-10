@@ -1,0 +1,179 @@
+* {
+  font-family: "LINE Seed JP", sans-serif;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+html, body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a1a1a;
+  color: black;
+  overflow: hidden;
+}
+
+#ui {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.w {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  background-image: url("arrow.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease, opacity 0.2 ease;
+  position: fixed;
+  z-index: 20;
+  opacity: 0.0;
+}
+
+#ui > .left {
+  left: 12px;
+  top: 50%;
+  transform: translateX(-10%) rotate(0deg);
+}
+
+#ui > .right {
+  right: 12px;
+  top: 50%;
+  transform: translateX(10%) rotate(180deg);
+}
+
+#ui > .up {
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(90deg);
+}
+
+#ui > .down {
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-90deg);
+}
+
+#ui > .back {
+  top: 12px;
+  left: 12px;
+  transform: translateX(-20%) rotate(0deg) scale(0.8);
+}
+
+#ui > .v {
+  opacity: 1.0;
+  pointer-events: auto;
+}
+
+#thing, #lid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+}
+
+#thing {
+  isolation: isolate;
+  z-index: 1;
+  width: auto;
+  height: auto;
+  transition: transform 1s ease;
+  display: inline-flex;
+}
+
+#bento {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+}
+
+#thing > div {
+  position: absolute;
+  z-index: 2;
+  transition: transform 0.2s ease;
+  will-change: transform;
+  cursor: pointer;
+}
+
+#top-left {
+  top: 6.5%;
+  left: 5%;
+  width: 38.5%;
+  height: 42%;
+  border-radius: 16px;
+  background-color: #0009;
+}
+
+#top-right {
+  top: 6.5%;
+  left: 47.5%;
+  width: 47%;
+  height: 42%;
+  border-radius: 16px;
+  background-color: #0009;
+}
+
+#bot-left {
+  top: 54%;
+  left: 5%;
+  width: 51%;
+  height: 41%;
+  border-radius: 16px;
+  background-color: #0009;
+}
+
+#bot-right {
+  top: 54%;
+  left: 60.5%;
+  width: 34.5%;
+  height: 41%;
+  border-radius: 16px;
+  background-color: #0009;
+}
+
+#lid {
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+  transition: filter 0.3s ease, transform 2s ease;
+}
+
+#lid.out {
+  transform: translate(50%, -50%);
+  pointer-events: none;
+}
+
+#lid:hover {
+  filter: brightness(1.5);
+}
+
+#thing.tl {
+  transform: translate(25%, 20%) scale(3.0);
+}
+
+#thing.tr {
+  transform: translate(-110%, 20%) scale(3.0);
+}
+
+#thing.bl {
+  transform: translate(0%, -130%) scale(3.0);
+}
+
+#thing.br {
+  transform: translate(-125%, -130%) scale(3.0);
+}
